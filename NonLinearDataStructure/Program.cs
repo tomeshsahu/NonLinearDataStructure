@@ -4,33 +4,11 @@ public class Program
 {
     public static void Main(String[] args)
     {
-        UC2_AvoidParticularWord<string, int> hash = new UC2_AvoidParticularWord<string, int>(5);
-        string words = "to be or not to be";
-        string[] arr = words.Split(' ');
-        LinkedList<string> checkForDuplication = new LinkedList<string>();
-        foreach (string element in arr) // to -> be
-        {
-            int count = 0;
-            foreach (string match in arr) //to->be->or->not->to-> be-> 
-            {
-                if (element == match)
-                {
-                    count++;//1->2
-                    if (checkForDuplication.Contains(element))
-                    {
-                        break;
-                    }
-                }
-
-            }
-
-            if (!checkForDuplication.Contains(element))
-            {
-                checkForDuplication.AddLast(element);
-                hash.Add(element, count);//(to,2) 
-            }
-
-        }
-        hash.Display();
+        UC2_BinarySearch<int> binarySearch = new UC2_BinarySearch<int>(70);
+        binarySearch.Insert(56);
+        binarySearch.Insert(30);
+        // binarySearch.Insert(56);
+        bool result = binarySearch.IfExists(70, binarySearch);
+        binarySearch.Display();
     }
 }
