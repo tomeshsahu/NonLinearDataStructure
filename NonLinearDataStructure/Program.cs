@@ -4,7 +4,7 @@ public class Program
 {
     public static void Main(String[] args)
     {
-        UC1_CalculatingFrequency<string, int> hash = new UC1_CalculatingFrequency<string, int>(5);
+        UC2_AvoidParticularWord<string, int> hash = new UC2_AvoidParticularWord<string, int>(5);
         string words = "to be or not to be";
         string[] arr = words.Split(' ');
         LinkedList<string> checkForDuplication = new LinkedList<string>();

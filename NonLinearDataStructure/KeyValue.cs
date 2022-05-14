@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NonLinearDataStructure
 {
-    public class KeyValues<K, V>
+    public class KeyValue<K, V>
     {
         public K key { get; set; }
         public V value { get; set; }

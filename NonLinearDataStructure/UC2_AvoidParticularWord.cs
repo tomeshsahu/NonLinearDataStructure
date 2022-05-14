@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace NonLinearDataStructure
 {
-    public class UC1_CalculatingFrequency<K, V>
+    public class UC2_AvoidParticularWord<K, V>
     {
         private readonly int size;
-        private readonly LinkedList<KeyValues<K, V>>[] items;
-        public UC1_CalculatingFrequency(int size)
+        private readonly LinkedList<KeyValue<K, V>>[] items;
+        public UC2_AvoidParticularWord(int size)
         {
             this.size = size;
-            items = new LinkedList<KeyValues<K, V>>[size];
+            items = new LinkedList<KeyValue<K, V>>[size];
         }
         public int GetArrayPosition(K key)
         {
@@ -23,16 +23,16 @@ namespace NonLinearDataStructure
         public void Add(K key, V value)
         {
             int position = GetArrayPosition(key);
-            LinkedList<KeyValues<K, V>> linkedlist = GetLinkedList(position);
-            KeyValues<K, V> item = new KeyValues<K, V>() { key = key, value = value };
+            LinkedList<KeyValue<K, V>> linkedlist = GetLinkedList(position);
+            KeyValue<K, V> item = new KeyValue<K, V>() { key = key, value = value };
             linkedlist.AddLast(item);
         }
-        public LinkedList<KeyValues<K, V>> GetLinkedList(int position)
+        public LinkedList<KeyValue<K, V>> GetLinkedList(int position)
         {
-            LinkedList<KeyValues<K, V>> linkedlist = items[position];
+            LinkedList<KeyValue<K, V>> linkedlist = items[position];
             if (linkedlist == null)
             {
-                linkedlist = new LinkedList<KeyValues<K, V>>();
+                linkedlist = new LinkedList<KeyValue<K, V>>();
                 items[position] = linkedlist;
             }
             return linkedlist;
@@ -41,9 +41,9 @@ namespace NonLinearDataStructure
         {
             int position = GetArrayPosition(key);
 
-            LinkedList<KeyValues<K, V>> linkedList = GetLinkedList(position);
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
 
-            foreach (KeyValues<K, V> item in linkedList)
+            foreach (KeyValue<K, V> item in linkedList)
             {
                 if (item.key.Equals(key))
                 {
@@ -56,10 +56,10 @@ namespace NonLinearDataStructure
         {
 
             int position = GetArrayPosition(key);
-            LinkedList<KeyValues<K, V>> linkedList = GetLinkedList(position);
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
             bool itemFound = false;
-            KeyValues<K, V> foundItem = default(KeyValues<K, V>);
-            foreach (KeyValues<K, V> item in linkedList)
+            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> item in linkedList)
             {
                 if (item.key.Equals(key))
                 {
@@ -78,12 +78,13 @@ namespace NonLinearDataStructure
             {
                 if (linkedList != null)
 
-                    foreach (KeyValues<K, V> keyvalue in linkedList)
+                    foreach (KeyValue<K, V> keyvalue in linkedList)
                     {
 
-                        Console.WriteLine(keyvalue.key + " " + keyvalue.value);
+                        Console.WriteLine(keyvalue.key + ":-> " + keyvalue.value + " ");
                     }
             }
+            Console.WriteLine(" ");
         }
     }
 }
